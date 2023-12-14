@@ -131,7 +131,7 @@ POSSIBLE_PIPES: dict[str, list[tuple[int, int, list[str]]]] = {
 }
 
 
-def find_neightbours(
+def find_neighbours(
     puzzle: list[str], row: int, col: int
 ) -> Iterator[tuple[int, int]]:
     current_value = puzzle[row][col]
@@ -152,7 +152,7 @@ def play_game(puzzle: list[str]) -> int:
     visited: set[tuple[int, int]] = {start}
     while queue:
         row, col = queue.pop(0)
-        for new_row, new_col in find_neightbours(puzzle, row, col):
+        for new_row, new_col in find_neighbours(puzzle, row, col):
             if (new_row, new_col) in visited:
                 continue
             visited.add((new_row, new_col))
